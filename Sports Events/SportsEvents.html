@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="background-slideshow"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../Homepage/index.html"><span>GLA</span> Events</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Events <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Tech Events/techEvent.html">Tech Events</a></li>
+                        <li><a href="../Sports Events/SportsEvents.html">Sport Events</a></li>
+                        <li><a href="../Cultural Events/CulturalEvents.html">Cultural Events</a></li>
+                        <li><a href="../Annual Event/AnnualEvent.html">Annual Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="../Homepage/index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html" class="nav-link btn-login">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1><i class="fas fa-running"></i> Sports Events</h1>
+        <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="marathon.jpg" alt="International Marathon" height = '200'>
+                <h2><i class="fas fa-running"></i> International Marathon</h2>
+                <p>Join runners from around the world in this prestigious marathon event.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> June 15, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Gate No. 1, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹99</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('International Marathon', 99)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('International Marathon')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="basketball.jpg" alt="3x3 Basketball Tournament" height = '200'>
+                <h2><i class="fas fa-basketball-ball"></i> 3x3 Basketball Tournament</h2>
+                <p>Compete in this exciting street basketball tournament.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> July 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Basketball Court, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹199</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('3x3 Basketball Tournament', 199)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('3x3 Basketball Tournament')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="swimming.jpg" alt="Swimming Championship" height = '200'>
+                <h2><i class="fas fa-swimming-pool"></i> Swimming Championship</h2>
+                <p>Show your swimming skills in various categories and styles.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> August 5, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Mathura Swimming Pool, Govardhan Chauraha, Mathura</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹149</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Swimming Championship', 149)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Swimming Championship')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 4 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="tennis.avif" alt="Tennis" height = '200'>
+                <h2><i class="fas fa-table-tennis"></i> Tennis</h2>
+                <p>Compete in singles and doubles matches in this prestigious tournament.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> September 10, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Tennis Ground, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹249</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Tennis', 249)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Tennis')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 5 -->
+            <div class="event-card">
+                <div class="card-badge expired">Expired</div>
+                <img src="soccer.webp" alt="Soccer Cup" height = '200'>
+                <h2><i class="fas fa-futbol"></i> Soccer Cup</h2>
+                <p>Join teams from across the region in this exciting soccer tournament.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> November 15, 2024</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Football Ground, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹299</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" disabled>Event Expired</button>
+                    <button class="info-btn" onclick="openEventDetails('Soccer Cup')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 6 -->
+            <div class="event-card">
+                <div class="card-badge limited">Limited Spots</div>
+                <img src="volleyball.webp" alt="Volleyball Tournament" height = '200'>
+                <h2><i class="fas fa-volleyball-ball"></i> Volleyball Tournament</h2>
+                <p>Compete in this exciting volleyball tournament with teams from around India.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> November 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Volleyball Court, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹199</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Volleyball Tournament', 199)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Volleyball Tournament')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="eventTitle"><i class="fas fa-user-plus"></i> Event Registration</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="screenshot"><i class="fas fa-image"></i> Medical Certificate (Max 2MB):</label>
+                    <input type="file" id="screenshot" name="screenshot" accept="image/jpeg,image/jpg" required>
+                    <small class="file-info">Please upload your medical certificate (JPG format, max 2MB)</small>
+                </div>
+                <div class="form-group payment-info">
+                    <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                    <p class="event-price">Event Price: <span id="eventPrice">$0</span></p>
+                    <div class="payment-options">
+                        <div class="payment-option" onclick="selectPaymentMethod('bank')">
+                            <i class="fas fa-university"></i> Bank Transfer
+                            <div class="payment-details bank-details" style="display: none;">
+                                <p>Bank: SportsEvents Bank</p>
+                                <p>Account: 1234567890</p>
+                                <p>IFSC: SPORT0001234</p>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('qr')">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                            <div class="payment-details qr-details" style="display: none;">
+                                <div id="qrCode"></div>
+                                <p class="qr-status">Scan QR code to complete payment</p>
+                                <button id="verifyPaymentBtn" class="verify-payment-btn" onclick="verifyPayment()" disabled>
+                                    <i class="fas fa-check-circle"></i> I've Made the Payment
+                                </button>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                            <i class="fas fa-mobile-alt"></i> UPI Payment
+                            <div class="payment-details upi-details" style="display: none;">
+                                <div class="upi-container">
+                                    <p>UPI ID: <span id="upiId">sportsEvents@upi</span>
+                                        <button class="copy-btn" onclick="copyUpiId(event)">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </p>
+                                    <p class="copy-status" id="upiCopyStatus"></p>
+                                </div>
+                                <p>Scan QR code or use UPI ID directly</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="paymentStatus" class="payment-status"></div>
+                </div>
+                <button type="submit" id="submitBtn" disabled><i class="fas fa-paper-plane"></i> Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close">&times;</span>
+            <div id="eventDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../shared/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA University Annual Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../shared/css/common.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carousel.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 1rem 0;
+            min-width: 200px;
+            display: none;
+            z-index: 10;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            color: #3498db;
+        }
+        
+        .btn-login, .btn-signup {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .btn-signup {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                transition: left 0.3s;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            
+            .dropdown-menu.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-slideshow"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../Homepage/index.html"><span>GLA</span> Events</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Events <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Tech Events/techEvent.html">Tech Events</a></li>
+                        <li><a href="../Sports Events/SportsEvents.html">Sport Events</a></li>
+                        <li><a href="../Cultural Events/CulturalEvents.html">Cultural Events</a></li>
+                        <li><a href="../Annual Event/AnnualEvent.html">Annual Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="../Homepage/index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html" class="nav-link btn-login">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1><i class="fas fa-university"></i> GLA University Annual Events</h1>
+        <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card">
+                <div class="card-badge expired">Expired</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="techfest1.webp" alt="GLA TechFest 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="techfest2.webp" alt="GLA TechFest 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="techfest3.webp" alt="GLA TechFest 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="techfest4.heic" alt="GLA TechFest 4">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-microchip"></i> TechNavya</h2>
+                <p>Annual technical festival showcasing innovation, coding competitions, and tech workshops.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> March 15-17, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Campus</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹500</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('GLA TechFest', 500)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('GLA TechFest')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="spandan1.jpg" alt="Spandan 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="spandan2.jpg" alt="Spandan 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="spandan3.jpeg" alt="Spandan 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../optimized/spandan4_optimized.jpeg" alt="Spandan 4">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-theater-masks"></i> Spandan</h2>
+                <p>Annual cultural festival celebrating art, music, dance, and drama.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> February 20-22, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Campus</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹300</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Spandan', 300)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Spandan')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="Sportsmeet1.jpg" alt="GLA Sports Meet 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Sportsmeet2.jpg" alt="GLA Sports Meet 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Sportsmeet3.jpg" alt="GLA Sports Meet 3">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-running"></i> GLA Sports Meet</h2>
+                <p>Annual sports competition featuring various athletic events and team sports.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> April 5-7, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Sports Complex</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹200</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('GLA Sports Meet', 200)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('GLA Sports Meet')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 4 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="alumini1.jpg" alt="Alumni Meet 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="alumini2.jpg" alt="Alumni Meet 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="alumini3.jpg" alt="Alumni Meet 3">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-users"></i> Alumni Meet</h2>
+                <p>Annual gathering of GLA University alumni with networking and cultural programs.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> December 15, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Campus</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹1000</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Alumni Meet', 1000)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Alumni Meet')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 5 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="international.jpg" alt="International Conference 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="international1.webp" alt="International Conference 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="international2.webp" alt="International Conference 3">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-chalkboard-teacher"></i> International Conference</h2>
+                <p>Annual academic conference featuring research presentations and expert talks.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> October 10-12, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Conference Hall</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹2000</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('International Conference', 2000)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('International Conference')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 6 -->
+            <div class="event-card">
+                <div class="card-badge limited">Limited Spots</div>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="hackathon1.jpeg" alt="GLA Hackathon 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="hackathon2.jpeg" alt="GLA Hackathon 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="hackathon3.jpeg" alt="GLA Hackathon 3">
+                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <h2><i class="fas fa-laptop-code"></i> GLA Hackathon</h2>
+                <p>48-hour coding competition with exciting prizes and mentorship opportunities.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> November 5-7, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> GLA University Innovation Hub</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹800</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('GLA Hackathon', 800)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('GLA Hackathon')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="eventTitle"><i class="fas fa-user-plus"></i> Event Registration</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="screenshot"><i class="fas fa-image"></i> Screenshot (Max 2MB):</label>
+                    <input type="file" id="screenshot" name="screenshot" accept="image/jpeg,image/jpg" required>
+                    <small class="file-info">Please upload a screenshot (JPG format, max 2MB)</small>
+                </div>
+                <div class="form-group payment-info">
+                    <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                    <p class="event-price">Event Price: <span id="eventPrice">$0</span></p>
+                    <div class="payment-options">
+                        <div class="payment-option" onclick="selectPaymentMethod('bank')">
+                            <i class="fas fa-university"></i> Bank Transfer
+                            <div class="payment-details bank-details" style="display: none;">
+                                <p>Bank: TechEvents Bank</p>
+                                <p>Account: 1234567890</p>
+                                <p>IFSC: TECH0001234</p>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('qr')">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                            <div class="payment-details qr-details" style="display: none;">
+                                <div id="qrCode"></div>
+                                <p class="qr-status">Scan QR code to complete payment</p>
+                                <button id="verifyPaymentBtn" class="verify-payment-btn" onclick="verifyPayment()" disabled>
+                                    <i class="fas fa-check-circle"></i> I've Made the Payment
+                                </button>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                            <i class="fas fa-mobile-alt"></i> UPI Payment
+                            <div class="payment-details upi-details" style="display: none;">
+                                <div class="upi-container">
+                                    <p>UPI ID: <span id="upiId">techEvents@upi</span>
+                                        <button class="copy-btn" onclick="copyUpiId(event)">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </p>
+                                    <p class="copy-status" id="upiCopyStatus"></p>
+                                </div>
+                                <p>Scan QR code or use UPI ID directly</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="paymentStatus" class="payment-status"></div>
+                </div>
+                <button type="submit" id="submitBtn" disabled><i class="fas fa-paper-plane"></i> Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close">&times;</span>
+            <div id="eventDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../shared/js/common.js"></script>
+</body>
+</html>

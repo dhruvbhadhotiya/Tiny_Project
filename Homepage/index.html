@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA University Events</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="#"><span>GLA</span> Events</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Events <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Tech Events/techEvent.html" target="_blank" >Tech Events</a></li>
+                        <li><a href="../Sports Events/SportsEvents.html" target="_blank">Sport Events</a></li>
+                        <li><a href="../Cultural Events/CulturalEvents.html" target="_blank">Cultural Events</a></li>
+                        <li><a href="../Annual Event/AnnualEvent.html" target="_blank">Annual Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="..\About\about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link btn-login" onclick="openLoginModal()">Student Login</a></li>
+                <li class="nav-item">
+                    <div class="dark-mode-toggle">
+                        <input type="checkbox" id="darkModeToggle">
+                        <label for="darkModeToggle" class="toggle-label">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Diagonal Slider -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="slide" data-slide-number="01">
+                <img src="assets/images/slider/IMG-20250410-WA0002.jpg" alt="Modern Architecture" class="slide-img">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1 class="slide-title">GLA University</h1>
+                        <p class="slide-description"></p>
+                        <div class="slide-buttons">
+                            <!-- <a href="#" class="btn btn-primary"></a>
+                            <a href="#" class="btn btn-outline"></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">01</div>
+            </div>
+            
+            <div class="slide" data-slide-number="02">
+                <img src="assets/images/slider/IMG-20250410-WA0003.jpg" alt="Interior Design" class="slide-img">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1 class="slide-title">GLA University</h1>
+                        <p class="slide-description"></p>
+                        <div class="slide-buttons">
+                            <!-- <a href="#" class="btn btn-primary"></a>
+                            <a href="#" class="btn btn-outline"></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">02</div>
+            </div>
+            
+            <div class="slide" data-slide-number="03">
+                <img src="assets/images/slider/IMG-20250410-WA0004.jpg" alt="Landscape Design" class="slide-img">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1 class="slide-title">GLA University</h1>
+                        <p class="slide-description"></p>
+                        <div class="slide-buttons">
+                            <!-- <a href="#" class="btn btn-primary"></a>
+                            <a href="#" class="btn btn-outline"></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">03</div>
+            </div>
+            
+            <div class="slide" data-slide-number="04">
+                <img src="assets/images/slider/IMG-20250410-WA0005.jpg" alt="Sustainable Design" class="slide-img">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1 class="slide-title">GLA University</h1>
+                        <p class="slide-description"></p>
+                        <div class="slide-buttons">
+                            <!-- <a href="#" class="btn btn-primary"></a>
+                            <a href="#" class="btn btn-outline"></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">04</div>
+            </div>
+        </div>
+        
+        <div class="dots"></div>
+        
+        <div class="slider-controls">
+            <div class="slider-btn prev-slide">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="slider-btn next-slide">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="slide-counter">
+            <div class="current-slide">01</div>
+            <div class="total-slides">04</div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Event Categories Section -->
+    <section class="event-categories" id="categories">
+        <div class="section-title">
+            <h2>Event Categories</h2>
+            <p>Explore the diverse range of events at GLA University</p>
+        </div>
+        <div class="categories-container">
+            <div class="category-card">
+                <div class="category-img">
+                    <img src=https://www.gla.ac.in/uploads/SmallImages/623pg_DSC_0031.JPG alt="Tech Events">
+                </div>
+                <h3>Tech Events</h3>
+                <p>Hackathons, coding competitions, tech workshops, and innovation challenges to enhance your technical skills.</p>
+                <a href="../Tech Events/techEvent.html" class="btn-learn-more">Learn More</a>
+            </div>
+            <div class="category-card">
+                <div class="category-img">
+                    <img src=https://www.gla.ac.in/uploads/SmallImages/612pg_DSC_0128.JPG alt="Sport Events">
+                </div>
+                <h3>Sport Events</h3>
+                <p>Tournaments, athletics competitions, and team events focused on physical fitness and sportsmanship.</p>
+                <a href="../Sports Events/SportsEvents.html" class="btn-learn-more">Learn More</a>
+            </div>
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="https://www.gla.ac.in/uploads/SmallImages/562pg_1R6A8843.jpg"alt=Cultural Events">
+                </div>
+                <h3>Cultural Events</h3>
+                <p>Performances, festivals, and cultural celebrations showcasing diverse talents and artistic expressions.</p>
+                <a href="../Cultural Events/CulturalEvents.html" class="btn-learn-more">Learn More</a>
+            </div>
+            <div class="category-card">
+                <div class="category-img">
+                    <img src=https://www.gla.ac.in/uploads/SmallImages/684pg_1R6A2196.JPG alt="Annual Events">
+                </div>
+                <h3>Annual Events</h3>
+                <p>Signature yearly celebrations including convocation, alumni meets, and campus-wide festivals.</p>
+                <a href="../Annual Event/AnnualEvent.html" class="btn-learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Why Attend GLA Events</h2>
+            <p>Benefits that enhance your university experience</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Networking</h3>
+                <p>Connect with industry experts, faculty members, and peers to build valuable relationships.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Skill Development</h3>
+                <p>Gain new skills, knowledge, and practical experience through workshops and competitions.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Certificates</h3>
+                <p>Earn certificates and recognition for participation and achievement in university events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Student Experiences</h2>
+            <p>Hear from our students about GLA events</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>"The Annual Tech Symposium opened doors to internship opportunities. I connected with companies and secured a summer internship with a leading tech firm!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Ankur Rai</h4>
+                    <p>B.Tech, Computer Science</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>"Participating in the cultural fest helped me discover my passion for performance art. The experience built my confidence and public speaking skills."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Aryan Singh</h4>
+                    <p>BBA, Marketing</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>"The research conference was the highlight of my academic year. I presented my work, received valuable feedback, and even got published in the university journal."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Karan Lodhi</h4>
+                    <p>M.Sc, Biotechnology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section with Map -->
+    <section class="contact-section" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Visit us or get in touch for event information</p>
+        </div>
+        <div class="contact-container">
+            <div class="address-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Our Address</h3>
+                        <p>GLA University</p>
+                        <p>17km Stone, NH-2, Mathura-Delhi Road</p>
+                        <p>P.O. Chaumuhan, Mathura-281406</p>
+                        <p>Uttar Pradesh, India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+91 1234567890</p>
+                        <p>+91 9876543210</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>events@gla.ac.in</p>
+                        <p>info@gla.ac.in</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 1:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.231965989176!2d77.5864!3d27.6052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736ce47bffc039%3A0x8a0b13250570fc9!2sGLA%20University!5e0!3m2!1sen!2sin!4v1680869428242!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="#"><span>GLA</span> Events</a>
+                <p>Mathura, Uttar Pradesh, India - 281406</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">University Website</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Subscribe to Event Updates</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your University Email">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GLA University. All Rights Reserved.</p>
+            <a href="#home" class="back-to-top">Back to Top <i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Student Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-user"></i> Student Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="studentId"><i class="fas fa-id-card"></i> Student ID:</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

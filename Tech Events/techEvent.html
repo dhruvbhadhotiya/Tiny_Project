@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Events</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore technology events at GLA University including workshops, hackathons, and conferences on AI, cloud computing, cybersecurity, and more.">
+    <meta name="keywords" content="tech events, GLA University, workshops, hackathons, AI, cloud computing, cybersecurity, blockchain, VR/AR">
+    <meta name="author" content="GLA University">
+    <style>
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 1rem 0;
+            min-width: 200px;
+            display: none;
+            z-index: 10;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            color: #3498db;
+        }
+        
+        .btn-login, .btn-signup {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .btn-signup {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                transition: left 0.3s;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            
+            .dropdown-menu.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-slideshow"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../Homepage/index.html"><span>GLA</span> Events</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Events <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Tech Events/techEvent.html">Tech Events</a></li>
+                        <li><a href="../Sports Events/SportsEvents.html">Sport Events</a></li>
+                        <li><a href="../Cultural Events/CulturalEvents.html">Cultural Events</a></li>
+                        <li><a href="../Annual Event/AnnualEvent.html">Annual Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="../Homepage/index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html" class="nav-link btn-login">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1><i class="fas fa-calendar-alt"></i> Tech Events</h1>
+        
+        <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="webdev.jpg" alt="Web Development Workshop" height = '200'>
+                <h2><i class="fas fa-code"></i> Web Development Workshop</h2>
+                <p>Learn modern web development techniques and best practices.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> June 15, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹299</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Web Development Workshop', 299)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Web Development Workshop')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="AI.jpg" alt="AI Conference" height = '200'>
+                <h2><i class="fas fa-brain"></i> AI Conference 2025</h2>
+                <p>Explore the latest developments in Artificial Intelligence.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> July 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹499</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('AI Conference 2024', 499)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('AI Conference 2024')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="cybersecurity.jpeg" alt="Cybersecurity Summit" height = '200'>
+                <h2><i class="fas fa-shield-alt"></i> Cybersecurity Summit</h2>
+                <p>Deep dive into the world of cybersecurity and data protection.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> August 5, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹399</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Cybersecurity Summit', 399)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Cybersecurity Summit')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 4 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="cloudcomputing.jpg" alt="Cloud Computing Expo" height = '200'>
+                <h2><i class="fas fa-cloud"></i> Cloud Computing Expo</h2>
+                <p>Discover cloud technologies and deployment strategies.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> September 10, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹349</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Cloud Computing Expo', 349)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Cloud Computing Expo')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 5 -->
+            <div class="event-card">
+                <div class="card-badge expired">Expired</div>
+                <img src="blockchain.webp" alt="Blockchain Conference" height = '200'>
+                <h2><i class="fas fa-cube"></i> Blockchain Conference</h2>
+                <p>Explore the future of blockchain technology and cryptocurrencies.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> May 15, 2024</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹299</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" disabled>Event Expired</button>
+                    <button class="info-btn" onclick="openEventDetails('Blockchain Conference')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 6 -->
+            <div class="event-card">
+                <div class="card-badge limited">Limited Spots</div>
+                <img src="VR_AR.jpeg" alt="VR/AR Summit" height = '200'>
+                <h2><i class="fas fa-vr-cardboard"></i> VR/AR Summit</h2>
+                <p>Experience the future of virtual and augmented reality.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> November 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> IBM Conference Hall, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹599</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('VR/AR Summit', 599)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('VR/AR Summit')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="eventTitle"><i class="fas fa-user-plus"></i> Event Registration</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="screenshot"><i class="fas fa-image"></i> Screenshot (Max 2MB):</label>
+                    <input type="file" id="screenshot" name="screenshot" accept="image/jpeg,image/jpg" required>
+                    <small class="file-info">Please upload a screenshot (JPG format, max 2MB)</small>
+                </div>
+                <div class="form-group payment-info">
+                    <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                    <p class="event-price">Event Price: <span id="eventPrice">$0</span></p>
+                    <div class="payment-options">
+                        <div class="payment-option" onclick="selectPaymentMethod('bank')">
+                            <i class="fas fa-university"></i> Bank Transfer
+                            <div class="payment-details bank-details" style="display: none;">
+                                <p>Bank: TechEvents Bank</p>
+                                <p>Account: 1234567890</p>
+                                <p>IFSC: TECH0001234</p>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('qr')">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                            <div class="payment-details qr-details" style="display: none;">
+                                <div id="qrCode"></div>
+                                <p class="qr-status">Scan QR code to complete payment</p>
+                                <button id="verifyPaymentBtn" class="verify-payment-btn" onclick="verifyPayment()" disabled>
+                                    <i class="fas fa-check-circle"></i> I've Made the Payment
+                                </button>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                            <i class="fas fa-mobile-alt"></i> UPI Payment
+                            <div class="payment-details upi-details" style="display: none;">
+                                <div class="upi-container">
+                                    <p>UPI ID: <span id="upiId">techEvents@upi</span>
+                                        <button class="copy-btn" onclick="copyUpiId(event)">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </p>
+                                    <p class="copy-status" id="upiCopyStatus"></p>
+                                </div>
+                                <p>Scan QR code or use UPI ID directly</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="paymentStatus" class="payment-status"></div>
+                </div>
+                <button type="submit" id="submitBtn" disabled><i class="fas fa-paper-plane"></i> Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close">&times;</span>
+            <div id="eventDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../assets/js/common.js"></script>
+    <!-- Page-specific JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

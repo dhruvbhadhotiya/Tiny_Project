@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Events</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 1rem 0;
+            min-width: 200px;
+            display: none;
+            z-index: 10;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            color: #3498db;
+        }
+        
+        .btn-login, .btn-signup {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .btn-signup {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 2rem 0;
+                transition: left 0.3s;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+            
+            .dropdown-menu.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-slideshow"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="../Homepage/index.html"><span>GLA</span> Events</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Events <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Tech Events/techEvent.html">Tech Events</a></li>
+                        <li><a href="../Sports Events/SportsEvents.html">Sport Events</a></li>
+                        <li><a href="../Cultural Events/CulturalEvents.html">Cultural Events</a></li>
+                        <li><a href="../Annual Event/AnnualEvent.html">Annual Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="../Homepage/index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html#contact" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="../Homepage/index.html" class="nav-link btn-login">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1><i class="fas fa-theater-masks"></i> Cultural Events</h1>
+        <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="danceImage.avif" alt="International Dance Festival" height = '200'>
+                <h2><i class="fas fa-music"></i> International Dance Festival</h2>
+                <p>Experience diverse dance forms from around the world.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> June 15, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> KC Ground, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹299</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('International Dance Festival', 299)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('International Dance Festival')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="artExhibition.webp" alt="Global Art Exhibition" height = '200'>
+                <h2><i class="fas fa-palette"></i> Global Art Exhibition</h2>
+                <p>Showcasing contemporary and traditional artworks from various cultures.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> July 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> EC Conference Hall, AB-2, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹200</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Global Art Exhibition', 499)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Global Art Exhibition')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="event-card">
+                <div class="card-badge upcoming">Upcoming</div>
+                <img src="musicEvent.jpg" alt="World Music Festival" height = '200'>
+                <h2><i class="fas fa-guitar"></i> World Music Festival</h2>
+                <p>Celebrate diverse musical traditions from across the globe.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> August 5, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> EC Conference Hall, AB-2, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹399</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('World Music Festival', 399)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('World Music Festival')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 4 -->
+            <div class="event-card">
+                <div class="card-badge popular">Popular</div>
+                <img src="foodfestival.webp" alt="International Food Festival" height = '200'>
+                <h2><i class="fas fa-utensils"></i> International Food Festival</h2>
+                <p>Taste authentic cuisines from different cultures around the world.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> September 10, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Udhyami Chaupal, AB-10, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹349</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('International Food Festival', 349)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('International Food Festival')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 5 -->
+            <div class="event-card">
+                <div class="card-badge expired">Expired</div>
+                <img src="theater.jpeg" alt="Theater Festival" height = '200'>
+                <h2><i class="fas fa-theater-masks"></i> Theater Festival</h2>
+                <p>Experience diverse theatrical performances from various traditions.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> March 15, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> EC Conference Hall, AB-2, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹299</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" disabled>Event Expired</button>
+                    <button class="info-btn" onclick="openEventDetails('Theater Festival')">More Info</button>
+                </div>
+            </div>
+
+            <!-- Event Card 6 -->
+            <div class="event-card">
+                <div class="card-badge limited">Limited Spots</div>
+                <img src="literature.avif" alt="Literature Festival" height = '200'>
+                <h2><i class="fas fa-book-open"></i> Literature Festival</h2>
+                <p>Celebrate world literature with authors and poets from around the globe.</p>
+                <div class="event-details">
+                    <p class="date"><i class="far fa-calendar"></i> May 20, 2025</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Udhyami Chaupal, AB-10, GLAU</p>
+                    <p class="price"><i class="fas fa-tag"></i> ₹599</p>
+                </div>
+                <div class="card-buttons">
+                    <button class="register-btn" onclick="openRegistration('Literature Festival', 599)">Register Now</button>
+                    <button class="info-btn" onclick="openEventDetails('Literature Festival')">More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="eventTitle"><i class="fas fa-user-plus"></i> Event Registration</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="screenshot"><i class="fas fa-image"></i> Screenshot (Max 2MB):</label>
+                    <input type="file" id="screenshot" name="screenshot" accept="image/jpeg,image/jpg" required>
+                    <small class="file-info">Please upload a screenshot (JPG format, max 2MB)</small>
+                </div>
+                <div class="form-group payment-info">
+                    <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                    <p class="event-price">Event Price: <span id="eventPrice">$0</span></p>
+                    <div class="payment-options">
+                        <div class="payment-option" onclick="selectPaymentMethod('bank')">
+                            <i class="fas fa-university"></i> Bank Transfer
+                            <div class="payment-details bank-details" style="display: none;">
+                                <p>Bank: TechEvents Bank</p>
+                                <p>Account: 1234567890</p>
+                                <p>IFSC: TECH0001234</p>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('qr')">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                            <div class="payment-details qr-details" style="display: none;">
+                                <div id="qrCode"></div>
+                                <p class="qr-status">Scan QR code to complete payment</p>
+                                <button id="verifyPaymentBtn" class="verify-payment-btn" onclick="verifyPayment()" disabled>
+                                    <i class="fas fa-check-circle"></i> I've Made the Payment
+                                </button>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                            <i class="fas fa-mobile-alt"></i> UPI Payment
+                            <div class="payment-details upi-details" style="display: none;">
+                                <div class="upi-container">
+                                    <p>UPI ID: <span id="upiId">techEvents@upi</span>
+                                        <button class="copy-btn" onclick="copyUpiId(event)">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </p>
+                                    <p class="copy-status" id="upiCopyStatus"></p>
+                                </div>
+                                <p>Scan QR code or use UPI ID directly</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="paymentStatus" class="payment-status"></div>
+                </div>
+                <button type="submit" id="submitBtn" disabled><i class="fas fa-paper-plane"></i> Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div id="eventDetailsModal" class="modal">
+        <div class="modal-content event-details-content">
+            <span class="close">&times;</span>
+            <div id="eventDetailsContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function openEventDetails(eventName) {
+            const modal = document.getElementById('eventDetailsModal');
+            const content = document.getElementById('eventDetailsContent');
+            
+            let eventInfo = '';
+            
+            switch(eventName) {
+                case 'International Dance Festival':
+                    eventInfo = `
+                        <h2><i class="fas fa-music"></i> International Dance Festival</h2>
+                        <div class="event-highlights">
+                            <h3>Event Highlights</h3>
+                            <ul>
+                                <li>Performances by 20+ international dance troupes</li>
+                                <li>Workshops in traditional and contemporary dance forms</li>
+                                <li>Interactive sessions with renowned choreographers</li>
+                                <li>Cultural exchange programs</li>
+                            </ul>
+                        </div>
+                        <div class="event-schedule">
+                            <h3>Schedule</h3>
+                            <p><strong>Day 1:</strong> Opening Ceremony & Traditional Dance Showcase</p>
+                            <p><strong>Day 2:</strong> Contemporary Dance Performances</p>
+                            <p><strong>Day 3:</strong> Workshops & Master Classes</p>
+                            <p><strong>Day 4:</strong> Fusion Dance Performances & Closing Ceremony</p>
+                        </div>
+                        <div class="event-venue">
+                            <h3>Venue Details</h3>
+                            <p>San Francisco Opera House</p>
+                            <p>301 Van Ness Ave, San Francisco, CA 94102</p>
+                            <p>Multiple performance halls and practice rooms available</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'Global Art Exhibition':
+                    eventInfo = `
+                        <h2><i class="fas fa-palette"></i> Global Art Exhibition</h2>
+                        <div class="event-highlights">
+                            <h3>Exhibition Features</h3>
+                            <ul>
+                                <li>Over 200 artworks from 50+ countries</li>
+                                <li>Interactive art installations</li>
+                                <li>Artist meet-and-greet sessions</li>
+                                <li>Art workshops for all skill levels</li>
+                            </ul>
+                        </div>
+                        <div class="exhibition-categories">
+                            <h3>Art Categories</h3>
+                            <ul>
+                                <li>Contemporary Art</li>
+                                <li>Traditional Folk Art</li>
+                                <li>Digital Art</li>
+                                <li>Sculpture & Installation Art</li>
+                                <li>Photography</li>
+                            </ul>
+                        </div>
+                        <div class="special-events">
+                            <h3>Special Events</h3>
+                            <p><strong>Opening Night:</strong> Gala Reception with Artists</p>
+                            <p><strong>Weekend Workshops:</strong> Hands-on Art Creation</p>
+                            <p><strong>Artist Talks:</strong> Daily Panel Discussions</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'World Music Festival':
+                    eventInfo = `
+                        <h2><i class="fas fa-guitar"></i> World Music Festival</h2>
+                        <div class="event-highlights">
+                            <h3>Festival Features</h3>
+                            <ul>
+                                <li>Performances by 30+ international artists</li>
+                                <li>Multiple stages featuring different genres</li>
+                                <li>Interactive music workshops</li>
+                                <li>Cultural music exchange programs</li>
+                            </ul>
+                        </div>
+                        <div class="music-genres">
+                            <h3>Featured Genres</h3>
+                            <ul>
+                                <li>Traditional Folk Music</li>
+                                <li>World Fusion</li>
+                                <li>Contemporary Global Music</li>
+                                <li>Classical World Music</li>
+                            </ul>
+                        </div>
+                        <div class="festival-schedule">
+                            <h3>Daily Schedule</h3>
+                            <p><strong>Morning:</strong> Workshops & Master Classes</p>
+                            <p><strong>Afternoon:</strong> Cultural Exchange Sessions</p>
+                            <p><strong>Evening:</strong> Main Stage Performances</p>
+                            <p><strong>Night:</strong> Late Night Jam Sessions</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'International Food Festival':
+                    eventInfo = `
+                        <h2><i class="fas fa-utensils"></i> International Food Festival</h2>
+                        <div class="event-highlights">
+                            <h3>Festival Features</h3>
+                            <ul>
+                                <li>50+ food vendors from around the world</li>
+                                <li>Cooking demonstrations by celebrity chefs</li>
+                                <li>Food tasting sessions</li>
+                                <li>Culinary workshops</li>
+                            </ul>
+                        </div>
+                        <div class="cuisine-zones">
+                            <h3>Cuisine Zones</h3>
+                            <ul>
+                                <li>Asian Street Food</li>
+                                <li>European Cuisine</li>
+                                <li>African Delicacies</li>
+                                <li>Latin American Flavors</li>
+                                <li>Middle Eastern Specialties</li>
+                            </ul>
+                        </div>
+                        <div class="special-events">
+                            <h3>Special Events</h3>
+                            <p><strong>Chef's Table:</strong> Exclusive dining experiences</p>
+                            <p><strong>Cooking Competitions:</strong> Amateur chef contests</p>
+                            <p><strong>Food & Wine Pairing:</strong> Expert-led sessions</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'Theater Festival':
+                    eventInfo = `
+                        <h2><i class="fas fa-theater-masks"></i> Theater Festival</h2>
+                        <div class="event-highlights">
+                            <h3>Festival Features</h3>
+                            <ul>
+                                <li>20+ theatrical productions</li>
+                                <li>International theater companies</li>
+                                <li>Workshop sessions with theater professionals</li>
+                                <li>Behind-the-scenes tours</li>
+                            </ul>
+                        </div>
+                        <div class="theater-categories">
+                            <h3>Performance Categories</h3>
+                            <ul>
+                                <li>Classical Theater</li>
+                                <li>Contemporary Drama</li>
+                                <li>Physical Theater</li>
+                                <li>Musical Theater</li>
+                                <li>Experimental Theater</li>
+                            </ul>
+                        </div>
+                        <div class="special-programs">
+                            <h3>Special Programs</h3>
+                            <p><strong>Youth Theater:</strong> Special performances for young audiences</p>
+                            <p><strong>Artist Talks:</strong> Discussions with directors and actors</p>
+                            <p><strong>Workshop Series:</strong> Acting and directing masterclasses</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'Literature Festival':
+                    eventInfo = `
+                        <h2><i class="fas fa-book-open"></i> Literature Festival</h2>
+                        <div class="event-highlights">
+                            <h3>Festival Features</h3>
+                            <ul>
+                                <li>50+ authors from around the world</li>
+                                <li>Book readings and signings</li>
+                                <li>Panel discussions and debates</li>
+                                <li>Writing workshops</li>
+                            </ul>
+                        </div>
+                        <div class="literature-categories">
+                            <h3>Featured Categories</h3>
+                            <ul>
+                                <li>Contemporary Fiction</li>
+                                <li>Poetry</li>
+                                <li>Non-Fiction</li>
+                                <li>Children's Literature</li>
+                                <li>Literary Translation</li>
+                            </ul>
+                        </div>
+                        <div class="special-events">
+                            <h3>Special Events</h3>
+                            <p><strong>Author Meet & Greet:</strong> Personal interactions with writers</p>
+                            <p><strong>Poetry Slam:</strong> Open mic sessions</p>
+                            <p><strong>Book Launch:</strong> Exclusive first looks at new releases</p>
+                            <p><strong>Writing Workshops:</strong> Hands-on creative writing sessions</p>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            content.innerHTML = eventInfo;
+            modal.style.display = "block";
+        }
+
+        // Close modal when clicking the close button or outside the modal
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                document.getElementById('eventDetailsModal').style.display = "none";
+            }
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('eventDetailsModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+    <!-- Navigation Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    // Animate hamburger to X
+                    const bars = this.querySelectorAll('.bar');
+                    if (bars.length === 3) {
+                        if (this.classList.contains('active')) {
+                            bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                            bars[1].style.opacity = '0';
+                            bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+                        } else {
+                            bars[0].style.transform = 'none';
+                            bars[1].style.opacity = '1';
+                            bars[2].style.transform = 'none';
+                        }
+                    }
+                });
+            }
+            
+            // Handle dropdown menus on mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('.nav-link');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                
+                if (link && menu && window.innerWidth <= 768) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        menu.classList.toggle('show');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
